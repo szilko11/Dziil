@@ -1,0 +1,88 @@
+{
+  "entities": {
+    "user": {
+      "title": "User",
+      "description": "User balance and account info",
+      "type": "object",
+      "properties": {
+        "discordId": { "type": "string" },
+        "balance": { "type": "number" },
+        "ppBalance": { "type": "number" }
+      },
+      "required": ["discordId", "balance", "ppBalance"]
+    },
+    "linkedAccount": {
+      "title": "LinkedAccount",
+      "description": "Discord to FiveM identifier link",
+      "type": "object",
+      "properties": {
+        "discordId": { "type": "string" },
+        "discordTag": { "type": "string" },
+        "fivemIdentifier": { "type": "string" },
+        "fivemName": { "type": "string" },
+        "linkedAt": { "type": "string" }
+      },
+      "required": ["discordId", "fivemIdentifier"]
+    },
+    "linkCode": {
+      "title": "LinkCode",
+      "description": "Temporary 6-char verification code for account linking",
+      "type": "object",
+      "properties": {
+        "discordId": { "type": "string" },
+        "discordTag": { "type": "string" },
+        "code": { "type": "string" },
+        "expiresAt": { "type": "number" }
+      },
+      "required": ["discordId", "code", "expiresAt"]
+    },
+    "dailyClaim": {
+      "title": "DailyClaim",
+      "description": "Record of user daily reward claims",
+      "type": "object",
+      "properties": {
+        "discordId": { "type": "string" },
+        "discordTag": { "type": "string" },
+        "rewardAmount": { "type": "number" },
+        "rewardType": { "type": "string" },
+        "streak": { "type": "number" },
+        "lastClaimDate": { "type": "string" }
+      },
+      "required": ["discordId", "lastClaimDate"]
+    },
+    "whitelistResult": {
+      "title": "WhitelistResult",
+      "description": "Whitelist quiz exam results",
+      "type": "object",
+      "properties": {
+        "discordId": { "type": "string" },
+        "score": { "type": "number" },
+        "passed": { "type": "boolean" },
+        "completedAt": { "type": "string" }
+      },
+      "required": ["discordId", "passed"]
+    }
+  },
+  "firestore": {
+    "/users/{discordId}": {
+      "schema": "user",
+      "description": "User balances stored by Discord ID"
+    },
+    "/linked_accounts/{discordId}": {
+      "schema": "linkedAccount",
+      "description": "Linked FiveM and Discord identities"
+    },
+    "/link_codes/{discordId}": {
+      "schema": "linkCode",
+      "description": "Temporary link codes"
+    },
+    "/daily_claims/{discordId}": {
+      "schema": "dailyClaim",
+      "description": "Daily claim tracker"
+    },
+    "/whitelist_results/{discordId}": {
+      "schema": "whitelistResult",
+      "description": "Whitelist quiz submissions and results"
+    }
+  }
+}

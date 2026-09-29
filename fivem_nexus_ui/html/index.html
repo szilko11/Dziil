@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Horizon UI</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="app" class="hidden">
+        <div class="overlay" id="close-btn"></div>
+        <div class="dashboard-container">
+            <!-- Header -->
+            <header class="header">
+                <div>
+                    <h1 class="logo-title">Nexus Horizon</h1>
+                    <p class="subtitle">Játékos Vezérlőpult</p>
+                </div>
+                <div class="close-icon" id="close-icon">
+                    <i data-lucide="x"></i>
+                </div>
+            </header>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                
+                <!-- Profile Card -->
+                <div class="card profile-card">
+                    <div class="card-header">
+                        <i data-lucide="user" class="icon-accent"></i>
+                        <h2>Karakter Adatok</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span class="label">Név</span>
+                            <span class="value" id="val-name">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Azonosító</span>
+                            <span class="value code" id="val-identifier">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Foglalkozás</span>
+                            <span class="value text-cyan" id="val-job">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Currency Card -->
+                <div class="card currency-card">
+                    <div class="card-header">
+                        <i data-lucide="wallet" class="icon-accent text-green"></i>
+                        <h2>Pénzügyek</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="balance-block">
+                            <span class="label">Készpénz</span>
+                            <div class="amount-val text-green" id="val-cash">$0</div>
+                        </div>
+                        <div class="balance-block">
+                            <span class="label">Bankszámla</span>
+                            <div class="amount-val text-blue" id="val-bank">$0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Card -->
+                <div class="card premium-card">
+                    <div class="premium-glow"></div>
+                    <div class="card-header">
+                        <i data-lucide="gem" class="icon-accent text-gold"></i>
+                        <h2>Prémium Egyenleg</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="balance-block center">
+                            <span class="label">Prémium Pont (PP)</span>
+                            <div class="amount-val text-gold huge" id="val-pp">0</div>
+                            <p class="helper-text">Vásárolj egyedi járműveket és extrákat a webshopban!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="footer-hint">Bezáráshoz nyomd meg az <span>ESC</span> billentyűt</div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
